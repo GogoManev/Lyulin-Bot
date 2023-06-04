@@ -4,7 +4,7 @@ const { REST, Routes, ApplicationCommandOptionType, } = require('discord.js');
 const commands = [
   {
     name: 'vupros',
-    description: 'Otgovarq s da ili ne',
+    description: 'Питай ме въпрос. Ще отговоря с да или не',
     options: [
       {
         name: 'vuprosut',
@@ -16,11 +16,15 @@ const commands = [
   },
   {
     name: 'facts',
-    description: 'Facti!',
+    description: 'Факти!',
   },
   {
     name: 'hot_milfs',
     description: 'Real',
+  },
+  {
+    name: 'teachers',
+    description: 'About TUES Teachers',
   },
 ];
 
