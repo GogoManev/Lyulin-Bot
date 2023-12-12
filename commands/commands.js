@@ -26,6 +26,14 @@ const commands = [
     name: 'teachers',
     description: 'About TUES Teachers',
   },
+  {
+    name: 'ocenka',
+    description: 'Ще те оценя',
+  },
+  {
+    name: 'vic',
+    description: 'Ще ти кажа много смешен виц',
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
