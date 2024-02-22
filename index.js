@@ -2,6 +2,7 @@
 const { Client, GatewayIntentBits, IntentsBitField, ActivityType, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 require("dotenv/config")
 const randomQuestion = require('./commands/commands');
+let i = randomNum(4), j = randomNum(3);
 
 const client = new Client({
      intents: [
@@ -15,20 +16,23 @@ client.on("ready", () => {
     console.log("BOT IS ONLINE");
 
     client.user.setActivity({
-        name: "With your mom",
-        type: ActivityType.Playing,
+        name: "Your mom on OF",
+        type: ActivityType.Watching,
         url: 'https://www.youtube.com/watch?v=SA52_udSz34',
     })
 })
 
 client.on('messageCreate', message => {
     if(message.content === 'o ne' || message.content === 'O ne' || message.content === 'O NE' || message.content === 'O Ne' || message.content === 'О не' || message.content === 'о не' || message.content === 'О Не' || message.content === 'О НЕ'){
-        if(Math.random() > 0.33 && Math.random() < 0.66){
+        i++;
+        if(i == 1){
             return message.channel.send('Обичам 010-ки');
-        }else if(Math.random() < 0.33){
+        }else if(i == 2){
             return message.channel.send('Има 69% вероятност това да е написано от Стефан');
-        }else if(Math.random() >= 0.67){
+        }else if(i == 3){
             return message.channel.send('О не');
+        }else{
+            i = 0;
         }
     }
 })
@@ -65,15 +69,19 @@ client.on('interactionCreate', async (interaction) => {
     }
   
     if (interaction.commandName === 'facts') {
-        if(Math.random() > 0.20 && Math.random() < 0.39){
+        j++
+        if(j == 1){
             return interaction.reply('Ти ядеш ябълки');
-        }else if(Math.random() < 0.40 && Math.random() < 0.59){
+        }else if(j == 2){
             return interaction.reply('Доминантата на Октомски - доказва, че човек може да се фокусира само върху едно нещо!');
-        }else if(Math.random() > 0.60 && Math.random() < 0.79){
+        }else if(j == 3){
             return interaction.reply('Този бот е написан на JavaScript');
-        }else if(Math.random() < 0.80){
+        }else if(j == 4){
             return interaction.reply('Ninja е починал от ligma.');
+        }else{
+            j = 0;
         }
+        
     }
 
     if (interaction.commandName === 'ocenka') {
@@ -108,5 +116,9 @@ client.on('interactionCreate', async (interaction) => {
         }
     }
   });  
+
+function randomNum(n) {
+    return Math.floor(Math.random() * n);
+}
 
 client.login(process.env.TOKEN);
